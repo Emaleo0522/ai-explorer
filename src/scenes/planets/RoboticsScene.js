@@ -19,8 +19,8 @@ export default class RoboticsScene extends BaseScene {
   async init(engine) {
     await super.init(engine);
 
-    engine.scene.background = new THREE.Color(0x080808);
-    engine.setBloom(0.6, 0.3, 0.85);
+    engine.scene.background = new THREE.Color(0x0f1218);
+    engine.setBloom(0.5, 0.3, 0.85);
 
     engine.camera.position.set(6, 5, 8);
     engine.camera.lookAt(0, 2, 0);
@@ -31,19 +31,22 @@ export default class RoboticsScene extends BaseScene {
     this.controls.target.set(0, 2, 0);
     this.controls.maxDistance = 20;
 
-    // Lighting
-    const ambient = new THREE.AmbientLight(0x222222, 0.8);
+    // Lighting — brighter so the arm is clearly visible
+    const ambient = new THREE.AmbientLight(0x667788, 1.5);
     engine.scene.add(ambient);
-    const keyLight = new THREE.DirectionalLight(0xff8a00, 1.5);
+    const keyLight = new THREE.DirectionalLight(0xff8a00, 2.5);
     keyLight.position.set(5, 8, 3);
     keyLight.castShadow = true;
     engine.scene.add(keyLight);
-    const fillLight = new THREE.PointLight(0xff6600, 0.8, 15);
+    const fillLight = new THREE.PointLight(0xff6600, 1.5, 20);
     fillLight.position.set(-3, 4, -2);
     engine.scene.add(fillLight);
-    const rimLight = new THREE.PointLight(0x00f0ff, 0.5, 20);
+    const rimLight = new THREE.PointLight(0x00f0ff, 1.2, 25);
     rimLight.position.set(0, 1, -5);
     engine.scene.add(rimLight);
+    const topLight = new THREE.PointLight(0xffffff, 0.8, 20);
+    topLight.position.set(0, 8, 0);
+    engine.scene.add(topLight);
 
     // Grid floor
     const gridHelper = new THREE.GridHelper(20, 20, 0xff8a00, 0x331a00);

@@ -1,0 +1,197 @@
+/* ============================================
+   AI FUTURE EXPLORER — CSS Animations
+   Keyframes + Animation Utilities
+   ============================================ */
+
+/* ---- Glow Pulse ---- */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(var(--color-cyan-rgb), 0.3),
+                0 0 10px rgba(var(--color-cyan-rgb), 0.15);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(var(--color-cyan-rgb), 0.5),
+                0 0 30px rgba(var(--color-cyan-rgb), 0.25),
+                0 0 45px rgba(var(--color-cyan-rgb), 0.1);
+  }
+}
+
+/* ---- Text Glow ---- */
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(var(--color-cyan-rgb), 0.4),
+                 0 0 10px rgba(var(--color-cyan-rgb), 0.2);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(var(--color-cyan-rgb), 0.6),
+                 0 0 20px rgba(var(--color-cyan-rgb), 0.3),
+                 0 0 40px rgba(var(--color-cyan-rgb), 0.15);
+  }
+}
+
+/* ---- Fade In ---- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---- Fade In Up ---- */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Fade In Down ---- */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Slide In Left ---- */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---- Slide In Right ---- */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---- Scale In ---- */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---- Scan Line (HUD effect) ---- */
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* ---- Glitch ---- */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    text-shadow: 2px 0 var(--color-magenta), -2px 0 var(--color-cyan);
+  }
+  40% {
+    transform: translate(2px, -2px);
+    text-shadow: -2px 0 var(--color-magenta), 2px 0 var(--color-cyan);
+  }
+  60% {
+    transform: translate(-1px, 1px);
+    text-shadow: 1px 0 var(--color-green), -1px 0 var(--color-purple);
+  }
+  80% {
+    transform: translate(1px, -1px);
+    text-shadow: -1px 0 var(--color-cyan), 1px 0 var(--color-magenta);
+  }
+}
+
+/* ---- Rotate ---- */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Float ---- */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ---- Border Trace (for HUD panels) ---- */
+@keyframes border-trace {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* ---- Flicker (neon sign effect) ---- */
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+
+/* ============================================
+   Animation Utility Classes
+   ============================================ */
+
+.animate-glow { animation: glow-pulse 2s ease-in-out infinite; }
+.animate-text-glow { animation: text-glow 2s ease-in-out infinite; }
+.animate-fade-in { animation: fade-in var(--duration-slow) var(--ease-out-expo) forwards; }
+.animate-fade-in-up { animation: fade-in-up var(--duration-slow) var(--ease-out-expo) forwards; }
+.animate-fade-in-down { animation: fade-in-down var(--duration-slow) var(--ease-out-expo) forwards; }
+.animate-slide-left { animation: slide-in-left var(--duration-slow) var(--ease-out-expo) forwards; }
+.animate-slide-right { animation: slide-in-right var(--duration-slow) var(--ease-out-expo) forwards; }
+.animate-scale-in { animation: scale-in var(--duration-slow) var(--ease-out-back) forwards; }
+.animate-glitch { animation: glitch 0.3s ease-in-out; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-rotate { animation: rotate 20s linear infinite; }
+.animate-flicker { animation: flicker 4s linear infinite; }
+
+/* ---- Stagger delays (for GSAP-like sequencing in pure CSS) ---- */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+.delay-8 { animation-delay: 0.8s; }
